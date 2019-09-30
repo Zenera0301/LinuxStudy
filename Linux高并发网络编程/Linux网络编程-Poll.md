@@ -32,4 +32,17 @@
 
 ### epoll
 
+底层通过红黑树实现
+
 使用共享内存，来回切换的时候不需要拷贝
+
+
+
+
+
+select突破不了1024限制（文件描述符个数上限1024个），poll和epoll可以突破；
+
+ulimit -a 可以查看资源上限，open file 是1024，需要修改配置文件，重新编译内核才能实现：
+
+`sudo vi /etc/security/limits.conf`
+
